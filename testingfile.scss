@@ -1,0 +1,322 @@
+// @import "./variables";
+// // & download
+
+// // & sass or scss
+
+// // & comments
+
+// // comment1 here only
+// /* comment in css*/
+
+
+
+// // & nesting
+// // div .c1{
+
+// // }
+// // div.c1{
+
+// // }
+// .parent{
+//     background-color: red;
+//     .child{
+//         background-attachment: blue;
+//         .subchild{
+//             background-color: azure;
+//         }
+//     }
+// }
+// // & sass ambersand
+// .container{
+//     width: 80%;
+//     margin: 0 auto;
+//     &-fluid{
+//     width: 100%;
+//     margin: 0;
+   
+// }
+//  &:hover{
+//         background-color: red;
+//     }
+// }
+
+
+
+// // & variables
+
+// .font-elem1{
+//     font-size: $font;
+// }
+// .font-elem2{
+//     $font:50px;
+//     font-size: $font;
+// }
+// // $font:70px;
+// .font-elem3{
+//     font-size: $font;
+// }
+// .c1{
+//     background-color: $primary;
+// }
+// // & scopes
+
+// // & partial files
+// // & Directives or At-rules
+// //  1- @extend
+// .box{
+//     width:100px;
+//     height:100px;
+//     color:red;
+// }
+// .elem1{
+//      width:400px;
+//     @extend .box;
+//     background-color: aqua;
+   
+// }
+
+// //  2- placeholder
+// %box2{
+//     width:100px;
+//     height:100px;
+//     color:red;
+// }
+// .elem2{
+//      width: 500px;
+//     @extend %box2;
+//     background-color: azure;
+//    &:hover{
+//     background-color: orange;
+// }
+// }
+// %box2:hover{
+//     background-color: red;
+// }
+
+
+// //  3- interpolation
+// // `vhhcvgvvg ${x}`
+// // cokj-#{$x}
+// $a:2;
+// col-#{$a}{
+//     width: 100%;
+// }
+// //  4- loops
+// // ^ -@for == to  through
+// @for $i from 1 through 100{
+//      .forelem-#{$i}{
+//         font-size: $i*10px;
+//      }
+// }
+// // @for $i from 1 through 12{
+// //     .col-#{$i}{
+// //         width: ($i/12)*100%;
+// //     }
+// // }
+
+// // ^ -@while
+// $x:1;
+// @while $x < 10{
+//     .while-elem-#{$x}{
+//         font-size: $x*1px;
+//     }
+//     $x:$x+1;
+//     // $x++;
+// }
+
+// // ^ -@each
+// $colors:(a:yellow,b:red);
+// @each $color in $colors{
+//     .each-elem-#{$color}{
+//         background-color: $color;
+//     }
+// }
+// $websites:(facebook:$colors);
+// @each $key , $val in $websites{
+//     @each $k,$v in $val{
+//         .#{$key}-#{$v}{
+//         background-color: $v;
+//     }
+//     }
+// }
+
+//   8- media queries
+// @media (max-width:400px){
+//     body{
+//         background-color: antiquewhite;
+//     }
+//     h1{
+//         font-size: 60px;
+//     }
+// }
+// @media (min-width:400.1111px) and (max-width:600px){
+//     body{
+//         background-color: aqua;
+//     }
+//     h1{
+//         font-size: 10px;
+//     }
+// }
+
+// body{
+//     @media (max-width:400px){
+//         background-color: azure;
+//     }
+//     @media (min-width:400.1111px) and (max-width:600px){
+//         background-color: aqua;
+//     }
+
+// }
+// h1{
+//     @media (max-width:400px){
+//        font-size: 60px;
+//     }
+//      @media (min-width:400.1111px) and (max-width:600px){
+//          font-size: 10px;
+//     }
+// }
+
+
+//  5- function 
+@function half ($val){
+    @return $val/2 *1px;
+}
+.elem{
+    width :half(40)
+}
+
+//  6- mixin     @include
+@mixin box ($w:100px, $h:100px, $c:red ,$bg:black){
+    width:$w;
+    height: $h;
+    color: $c;
+    background-color: $bg;
+}
+.elem-1{
+     width:600px;
+    @include box();
+    font-size: 50px;
+   
+}
+.elem-2{
+    @include box(600px,400px, black ,red )
+}
+//   7- @if  @else
+
+$isDark:true;
+@if $isDark{
+    body{
+    background-color: black;
+}
+}
+@else{
+    body{
+        background-color: white;
+    }
+}
+
+// & Bootstrap Layout 
+@mixin layout ($no-cols, $break-point, $range){
+   @media (min-width:$range) {
+     @if ($break-point==""){
+        @for $i from 1 through $no-cols{
+            .col-#{$i}{
+                width: ($i/$no-cols)*100%;
+            }
+        }
+    }
+    @else {
+         @for $i from 1 through $no-cols{
+            .col-#{$break-point}-#{$i}{
+                width: ($i/$no-cols)*100%;
+            }
+        }
+    }
+   }
+   
+}
+@include layout(12, "",0px );
+@include layout(12, "sm",400px );
+@include layout(12, "md",600px );
+@include layout(12, "lg",800px );
+@include layout(12, "xlg",1000px );
+
+
+// & Bootstrap Colors
+
+//LESS
+// Variables
+// class function & id function
+//obj
+//each
+//guard
+// Flex container utility
+.flex {
+    display: flex;
+}
+
+// Justify-content utilities
+$justify-values: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+    evenly: space-evenly
+);
+
+@each $name, $value in $justify-values {
+    .justify-#{$name} {
+        justify-content: $value !important;
+    }
+}
+
+// Align-items utilities
+$align-values: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    stretch: stretch,
+    baseline: baseline
+);
+
+@each $name, $value in $align-values {
+    .align-#{$name} {
+        align-items: $value !important;
+    }
+}
+
+// Optional: flex-direction
+$direction-values: (
+    row: row,
+    column: column,
+    "row-reverse": row-reverse,
+    "column-reverse": column-reverse
+);
+
+@each $name, $value in $direction-values {
+    .flex-#{$name} {
+        flex-direction: $value !important;
+    }
+}
+
+// Optional: gap utilities
+$gap-values: (
+    0: 0,
+    1: 5px,
+    2: 10px,
+    3: 15px,
+    4: 20px
+);
+
+@each $name, $value in $gap-values {
+    .gap-#{$name} {
+        gap: $value !important;
+    }
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: ($i/12)*100%;
+    }
+}

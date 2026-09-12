@@ -1,0 +1,64 @@
+@import "variables";
+@import "grid";
+@import "buttons";
+@import "utilities";
+
+body{
+    background-color: $c5;
+    
+}
+
+#home img {
+    max-width: 100%;
+    display: block;
+}
+
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.nav{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    background-color: $c3;
+    border-radius: 4px;
+}
+
+.finish-btn,
+.btn-primary {
+    width: 25%;
+
+    @include tablet {
+        width: 50%;
+    }
+
+    @include mobile {
+        width: 100%;
+    }
+}
+.visible-only-in-mobileview{
+    @include mobile{
+        display: block;
+    }
+}
+.hidden-in-mobileview{
+    @include mobile{
+        display: none;
+    }
+}

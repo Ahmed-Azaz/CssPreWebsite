@@ -1,0 +1,29 @@
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+[class*="col-"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: (100% / 12) * $i;
+    }
+
+    .col-md-#{$i} {
+        width: (100% / 12) * $i;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+}

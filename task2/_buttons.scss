@@ -1,0 +1,30 @@
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: $c1;
+    color: $c5;
+
+    &:hover {
+        background-color: $secondary;
+    }
+}
+.btn-list{
+    background-color: $primary;
+    &:hover {
+            background-color: $secondary;
+        }
+}
+.visible-only-in-mobileview{
+    display: none;
+}
+.hidden-in-mobileview{
+    display: block;
+}

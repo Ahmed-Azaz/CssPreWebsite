@@ -1,0 +1,109 @@
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+
+.d-flex {
+    display: flex;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+$gap-sizes: (
+    5: 5px,
+    10: 10px,
+    15: 15px,
+    20: 20px,
+    30: 30px
+);
+
+@each $name, $size in $gap-sizes {
+    .gap-#{$name} {
+        gap: $size;
+    }
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+$justify-values: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    between: space-between,
+    around: space-around
+);
+
+@each $name, $value in $justify-values {
+    .justify-content-#{$name} {
+        justify-content: $value;
+    }
+}
+
+
+$align-values: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    stretch: stretch
+);
+
+@each $name, $value in $align-values {
+    .align-items-#{$name} {
+        align-items: $value;
+    }
+}
+
+
+@include tablet {
+    .d-md-flex {
+        display: flex;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+}
+
+@include mobile {
+    .d-sm-flex {
+        display: flex;
+    }
+
+    .d-sm-none {
+        display: none;
+    }
+}
+
+$text-colors: (
+    c1: $c1,
+    c2: $c2,
+    c3: $c3,
+    c4: $c4,
+    c5: $c5,
+    c6: $c6
+);
+
+@each $name, $color in $text-colors {
+    .text-#{$name} {
+        color: $color !important;
+    }
+}
